@@ -4,11 +4,15 @@ var Schema = mongoose.Schema;
 
 
 var GameSchema = new Schema({
-  name: {
+  title: {
     type: String,
     required: true
   },
-  created_date: {
+  tags: {
+    type: [String],
+    required: true
+  },
+  publish_date: {
     type: Date,
     default: Date.now
   },

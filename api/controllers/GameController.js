@@ -27,5 +27,25 @@ const getById = async (req, res, next) => {
     res.json(game);
 }
 
+const add = async (req, res, next) => {
+    const game = new Game({
+        title: req.body.title,
+        tags: req.body.tags,
+        publish_date: req.body.publish_date,
+        price: req.body.price,
+        description: req.body.description,
+    });
+    try {
+		await game.save();
+	} catch (err) {
+		res.status(500).json({ message: 'Add new game failed' });
+		return next(err);
+	}
+
+	res.status(201).json({});
+}
+
+
 exports.getAll = getAll;
 exports.getById = getById;
+exports.add = add;
