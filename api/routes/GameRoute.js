@@ -7,4 +7,6 @@ router.post('/create', GameController.add);
 router.get('/', GameController.getAll);
 router.get('/:game_id', GameController.getById);
 
+router.delete('/:game_id', GameController.delete);
+
 module.exports = router;

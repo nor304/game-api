@@ -6,4 +6,6 @@ router.post('/add', CartController.add);
 
 router.get('/:account_id', CartController.getById);
 
+router.delete('/:game_id', CartController.delete);
+
 module.exports = router;
