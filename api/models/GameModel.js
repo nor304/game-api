@@ -6,7 +6,7 @@ var Schema = mongoose.Schema;
 var GameSchema = new Schema({
   title: {
     type: String,
-    required: true
+    required: false
   },
   tags: {
     type: [String],
@@ -21,6 +21,10 @@ var GameSchema = new Schema({
     require: true
   },
   description: {
+    type: String,
+    default: ""
+  },
+  thumbnail: {
     type: String,
     default: ""
   }

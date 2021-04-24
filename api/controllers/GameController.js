@@ -34,7 +34,7 @@ const add = async (req, res, next) => {
         publish_date: req.body.publish_date,
         price: req.body.price,
         description: req.body.description,
-        thumbnail: req.body.thumbnail
+        thumbnail: req.body.thumbnail,
     });
     try {
 		await game.save();
@@ -43,10 +43,26 @@ const add = async (req, res, next) => {
 		return next(err);
 	}
 
-	res.status(201).json({});
+	res.status(201).json(game);
 }
 
+const _delete = async (req, res, next) => {
+    let game;
+    try {
+        game = await Game.findById(req.params.game_id);
+    } catch (err) {
+        res.status(500).json({ message: 'Fetch failed' });
+		return next(err);
+    }
+    if (!game) {
+        res.status(404).json({ message: 'Game not found'});
+        return;
+    }
+    await Game.deleteOne(game);
+    res.status(201).json({});
+}
 
 exports.getAll = getAll;
 exports.getById = getById;
 exports.add = add;
+exports.delete = _delete

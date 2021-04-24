@@ -28,5 +28,22 @@ const add = async (req, res, next) => {
 	res.status(201).json({});
 }
 
+const _delete = async (req, res, next) => {
+    let cart;
+    try {
+        cart = await Cart.find({ game_id : req.params.game_id});
+    } catch (err) {
+        res.status(500).json({ message: 'Fetch failed' });
+		return next(err);
+    }
+    if(!cart) {
+        res.status(404).json({ message: 'This game does not exsit in your cart'});
+        return;
+    }
+    await Cart.deleteOne(cart[0]);
+    res.status(201).json({});
+};
+
 exports.getById = getById;
 exports.add = add;
+exports.delete = _delete;
