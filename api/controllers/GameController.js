@@ -34,6 +34,7 @@ const add = async (req, res, next) => {
         publish_date: req.body.publish_date,
         price: req.body.price,
         description: req.body.description,
+        thumbnail: req.body.thumbnail
     });
     try {
 		await game.save();
