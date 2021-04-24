@@ -14,7 +14,7 @@ var GameSchema = new Schema({
   },
   publish_date: {
     type: Date,
-    default: Date.now
+    required: true
   },
   price: {
     type: String,
@@ -23,6 +23,10 @@ var GameSchema = new Schema({
   description: {
     type: String,
     default: ""
+  },
+  thumbnail: {
+    type: String,
+    required: true
   }
 });
 

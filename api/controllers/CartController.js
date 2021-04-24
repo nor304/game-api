@@ -16,7 +16,9 @@ const getById = async (req, res, next) => {
 const add = async (req, res, next) => {
     const cart = new Cart({
         account_id: req.body.account_id,
-        game_id: req.body.game_id,
+        title: req.body.title,
+        price: req.body.price,
+        thumbnail: req.body.thumbnail,
     });
     try {
 		await cart.save();

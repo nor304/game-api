@@ -8,8 +8,17 @@ var CartSchema = new Schema({
     type: String,
     required: true
   },
-  game_id: {
-    type: String
+  title: {
+    type: String,
+    required: true,
+  },
+  price: {
+    type: String,
+    required: true,
+  },
+  thumbnail: {
+    type: String,
+    required: true,
   }
 });
 

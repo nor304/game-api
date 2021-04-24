@@ -31,7 +31,7 @@ const add = async (req, res, next) => {
     const game = new Game({
         title: req.body.title,
         tags: req.body.tags,
-        publish_date: req.body.publish_date,
+        publish_date: Date.now(),
         price: req.body.price,
         description: req.body.description,
         thumbnail: req.body.thumbnail
