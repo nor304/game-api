@@ -1,5 +1,5 @@
 const Joi = require('joi')
-const PasswordComplexity = require('joi-password-complexity')
+// const PasswordComplexity = require('joi-password-complexity')
 
 const schema = Joi.object().keys({
     name : Joi.string(),

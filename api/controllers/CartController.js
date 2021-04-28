@@ -5,7 +5,7 @@ const Cart = db.Cart
 const getById = async (req, res, next) => {
     let cart;
     try {
-        cart = await Cart.findById(req.params.cart_id);
+        cart = await Cart.find({ account_id: req.params.account_id });
     } catch (err) {
         res.status(500).json({ message: 'Fetch failed' });
 		return next(err);

@@ -2,7 +2,9 @@ const db = require('../helper/db');
 const fs = require('fs');
 const bcrypt = require('bcrypt');
 const jwt = require('jsonwebtoken');
-const Account = db.Account
+const Account = db.Account;
+const schema = require('../config/schema');
+const config = process.env.SECRET;
 
 const getAll = async (req, res, next) => {
     let accounts;
@@ -68,7 +70,7 @@ const register = async (req, res, next) => {
 	}
 
 	const token = jwt.sign(
-		{ email: account.email, account_id: accound.id },
+		{ email: account.email, account_id: account.id },
 		config,
 		{ expiresIn: '7d' }
 	);
