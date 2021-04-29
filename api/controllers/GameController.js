@@ -1,6 +1,6 @@
 const db = require('../helper/db');
 const fs = require('fs');
-const Game = db.Game
+const Game = db.Game;
 
 const getAll = async (req, res, next) => {
     let games;

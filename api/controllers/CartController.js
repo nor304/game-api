@@ -1,6 +1,6 @@
 const db = require('../helper/db');
 const fs = require('fs');
-const Cart = db.Cart
+const Cart = db.Cart;
 
 const getById = async (req, res, next) => {
     let cart;
