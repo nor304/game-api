@@ -7,13 +7,17 @@ var OrderSchema = new Schema({
         type: String,
         required: true
     },
-    game_id: {
-        type: String,
+    game_titles: {
+        type: Array,
         required: true
     },
     created_date: {
         type: Date,
         default: Date.now()
+    },
+    total: {
+        type: String,
+        required: true,
     }
 });
 
